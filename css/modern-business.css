@@ -14,13 +14,41 @@ h1, h2, h3, h4, h5, h6 {
 .navbar{ 
   background: white !important;
   color: #333C64 !important;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  transition: all 0.4s ease-in-out;
 }
+
+.navbar-top{ 
+  background: #333C64 !important;
+  color: white !important;
+  display: flex;
+  align-items: center;
+  height: 80px;
+  transition: all 0.4s ease-in-out;
+}
+
 .navbar-brand, .nav-link, .dropdown-item {
   color: #333C64 !important;
+}
+.navbar-toggler {
+  color: #333C64 !important;
+}
+
+.navbar-top .navbar-brand, .navbar-top .nav-link, .dropdown-item {
+  color: white !important;
+}
+.navbar-top .navbar-toggler {
+  color: white !important;
 }
 
 .bg-mpd {
   background: #333C64 !important;
+}
+
+.text-mpd {
+  color: #333C64 !important;
 }
 
 .text-white {
@@ -29,36 +57,87 @@ h1, h2, h3, h4, h5, h6 {
 
 .carousel-item {
   position: relative;
-  height: 65vh;
+  height: calc(100vh - 56px );
   min-height: 300px;
-  background: no-repeat center center scroll;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  overflow: hidden;
+}
+
+.bg-el{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  transition: transform 2s ease-in-out;
 }
 
 .carousel-item .carousel-animated {
   position: absolute;
-  top: -500px;
+  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.1);
   transition: all 1s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-/* .carousel-item.active {
-  transform: scale(1.1);;
-} */
+.carousel-item .carousel-animated img {
+  transform: translateY(-700px);
+}
+
+.carousel-item .carousel-animated p {
+  transform: translateX(-1400px);
+  opacity: 0;
+  font-size: 17px;
+}
+
+@keyframes bcg {
+  from { background: rgba(0, 0, 0, 0.1); }
+  to { background: rgba(0, 0, 0, 0.55); }
+}
 
 .active .carousel-animated {
   transition: all 1s ease-in-out;
   top: 0;
   bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.50);
+  left: 0;
+  right: 0;
+  animation: bcg 1.5s ease-in-out 0.5s forwards;
+}
+
+@keyframes zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+.active .bg-el {
+  animation: zoom 4s ease-in forwards;
+}
+
+@keyframes fromTop {
+  from { transform: translateY(-700px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.active .carousel-animated img {
+  animation: fromTop 3s ease-in-out 1s forwards;
+}
+
+@keyframes fromLeft {
+  from { transform: translateX(-500px); opacity: 0;}
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.active .carousel-animated p {
+  animation: fromLeft 2s ease-in-out 2s forwards;
 }
 
 .carousel-caption {
@@ -100,7 +179,7 @@ h1, h2, h3, h4, h5, h6 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  min-height: 600px;
+  min-height: calc(100vh - 56px );
   width: 100%;
 }
 /* Project 1 */
@@ -185,6 +264,9 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
 }
+.project-content p {
+  opacity: 0;
+}
 .project-content-static {
   display: flex;
   align-items: center;
@@ -206,6 +288,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 .project-content:hover{
   opacity: 1;
+}
+@keyframes txt {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.project-content:hover p{
+  animation: txt 0.7s ease-in-out 0.3s forwards;
 }
 .contact{
   position: relative;
