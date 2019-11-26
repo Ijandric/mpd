@@ -11,7 +11,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #333C64;
 }
 
-.navbar{ 
+.navbar { 
   background: white !important;
   color: #333C64 !important;
   display: flex;
@@ -20,9 +20,10 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.4s ease-in-out;
   text-transform: uppercase;
   font-size: 14px;
+  font-weight: 100 !important;
 }
 
-.navbar-top{ 
+.navbar-top { 
   background: #333C64 !important;
   color: white !important;
   display: flex;
@@ -33,6 +34,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar-brand, .nav-link, .dropdown-item {
   color: #333C64 !important;
+  font-weight: 100 !important;
 }
 .navbar-toggler {
   color: #333C64 !important;
@@ -99,6 +101,11 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-700px);
 }
 
+.carousel-item .carousel-animated img.fadeIn {
+  transform: none;
+  opacity: 0;
+}
+
 .carousel-item .carousel-animated p {
   transform: translateX(-1400px);
   opacity: 0;
@@ -134,8 +141,17 @@ h1, h2, h3, h4, h5, h6 {
   to { transform: translateY(0); opacity: 1; }
 }
 
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 .active .carousel-animated img {
   animation: fromTop 3s ease-in-out 1s forwards;
+}
+
+.active .carousel-animated img.fadeIn {
+  animation: fade 3s ease-in-out 1s forwards;
 }
 
 @keyframes fromLeft {
@@ -179,7 +195,6 @@ h1, h2, h3, h4, h5, h6 {
   color: white;
   font-weight: 200;
   padding: 60px 50px;
-
 }
 
 .section-projects {
@@ -191,10 +206,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* Project 1 */
 .project-1 .gr-1 {
-  background: #d8c8ad;
+  
+  background: url('../images/p2.b.jpg');
+  background-position: center;
 }
 .project-1 .gr-2 {
-  background: url('../images/s18.1.jpg')
+  background: url('../images/s18.1.jpg');
 }
 .project-1 .gr-3 {
   background: url('../images/s18.3.jpg');
@@ -204,13 +221,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* Project 2 */
 .project-2 .gr-1 {
-  background: #D9C9AD;
+  background: url('../images/p1.b.jpg');
 }
 .project-2 .gr-2 {
   background: url('../images/p85.1.jpg')
 }
 .project-2 .gr-3 {
-  background: url('../images/p85.1.jpg');
+  background: url('../images/p85.4.jpg');
 }
 .project-2 .gr-4 {
   background: url('../images/p85.2.jpg');
@@ -241,10 +258,19 @@ h1, h2, h3, h4, h5, h6 {
 .project-4 .gr-4 {
   background: url('../images/novi.3.jpg');
 }
+.project-1 .project-content-static a {
+  font-weight: 300;
+  font-size: 12px;
+  color: black;
+  transition: 0.2s ease-in-out;
+}
 .project-2 .project-content-static {
   flex-direction: column;
   font-family: 'Cormorant Garamond', serif;
   font-weight: bold;
+}
+.project-2 .project-content-static a{
+  color: #323C63;
 }
 .project-3 .project-content-static {
   flex-direction: column;
@@ -302,7 +328,7 @@ a.project-logo{
 }
 .contact{
   position: relative;
-  background: url("../images/kontakt.png");
+  background: url("../images/kon.jpg");
   background-size: cover;
   background-position: top;
   min-height: 800px;
@@ -325,4 +351,26 @@ a.project-logo{
   transform: scale(1.1);
   color: rgb(29, 34, 56);
   transition: all 0.2s ease-in-out;
+}
+footer {
+  background-color: #333C64 !important;
+}
+footer p{
+  font-size: 13px;
+  font-weight: 300;
+}
+@media screen and (max-width: 768px) { 
+  .carousel-item .carousel-animated p {
+    max-width: 80%;
+    font-size: 13px;
+  }
+  .about-text{
+    padding: 40px 2%;
+  }
+  .section-projects {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    overflow: hidden;
+    min-height: 1300px;
+  }
 }
