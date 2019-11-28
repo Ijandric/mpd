@@ -227,14 +227,17 @@ h1, h2, h3, h4, h5, h6 {
   background: url('../images/p85.1.jpg')
 }
 .project-2 .gr-3 {
-  background: url('../images/p85.4.jpg');
+  background: url('../images/p85w.png');
 }
 .project-2 .gr-4 {
   background: url('../images/p85.2.jpg');
 }
 /* Project 3 */
 .project-3 .gr-1 {
-  background: #D9C9AD;
+  background: #323C63;
+}
+.project-3 .gr-1 h3 {
+  color: #D9C9AD;
 }
 .project-3 .gr-2 {
   background: url('../images/b12.3.jpg')
