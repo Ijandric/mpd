@@ -28,6 +28,7 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Zilla+Slab:400,500&display=swap" rel="stylesheet">
 
   <script src="https://kit.fontawesome.com/8cb5f32edc.js" crossorigin="anonymous"></script>
 
@@ -80,9 +81,9 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
       </ol>
-      <div class="carousel-inner" role="listbox">
+      <div class="carousel-inner"  role="listbox">
         <!-- Slide One - Set the background image for this slide in the line below -->
-        <div class="carousel-item active" >
+        <div class="carousel-item active" data-interval="4000">
           <div class="bg-el" style="background-image: url('images/slide-3.jpg')">
             <div class="carousel-animated">
                 <img class="fadeIn" width="150" src="images/logo-bijeli.png" alt="">
@@ -90,7 +91,7 @@
           </div>
         </div>
         <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item">
+        <div class="carousel-item" data-interval="10000">
           <div class="bg-el" style="background-image: url('images/slide-2.jpg')">
               <div class="carousel-animated">
                   <img width="150" src="images/logo-bijeli.png" alt="">
@@ -99,7 +100,7 @@
           </div>
         </div>
         <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item">
+        <div class="carousel-item" data-interval="12000">
           <div class="bg-el" style="background-image: url('images/slide-1.jpg')">
             <div class="carousel-animated">
                 <img width="150" src="images/logo-bijeli.png" alt="">
@@ -153,7 +154,7 @@
   </div> -->
   <div class="about-section about-2" id="about">
       <div class="about-content">
-        <h3 class="pt-5 text-center text-mpd mb-5">O nama</h3>
+        <h3 class="pt-5 text-center text-mpd mb-5 section-title">O nama</h3>
         <p class="about-text bg-white text-mpd">
           U našem poslovanju primarno nas zanima obnova povijesnog i vrijednog (u smislu kupnje i renovacije starih zgrada u središtu Zagreba), a u nadolazećem periodu planiramo i projekte novogradnje. U oba slučaja, fokusirani smo na unaprjeđenje postojećeg urbanog prostora.<br><br>
 
@@ -164,7 +165,7 @@
       </div>
   </div>
   <hr>
-  <div class="container text-center pt-5 pb-5" id="projects">
+  <div class="container text-center pt-5 pb-5 section-title" id="projects">
     <h3>Projekti</h3>
   </div>
   <!-- PROJECT 1 -->
@@ -314,6 +315,18 @@
             $(".navbar").removeClass("navbar-top");
           }
       });
+
+      var t;
+      var start = $('#carouselExampleIndicators').find('.active').attr('data-interval');
+      t = setTimeout("$('#carouselExampleIndicators').carousel({interval: 1000});", start-1000);
+
+      $('#carouselExampleIndicators').on('slid.bs.carousel', function () {  
+          clearTimeout(t);  
+          var duration = $(this).find('.active').attr('data-interval');
+          
+          $('#carouselExampleIndicators').carousel('pause');
+          t = setTimeout("$('#carouselExampleIndicators').carousel();", duration-1000);
+      })
     });
   </script>
 

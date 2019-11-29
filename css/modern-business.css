@@ -186,15 +186,14 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 auto;
 }
 
-.about-section .about-header img {
-  width: 100%;
-}
 
 .about-text {
   background: #323C63;
   color: white;
   font-weight: 200;
   padding: 60px 50px;
+  max-width: 90%;
+  margin: 0 auto;
 }
 
 .section-projects {
@@ -238,6 +237,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .project-3 .gr-1 h3 {
   color: #D9C9AD;
+  font-family: 'Zilla Slab', serif;
 }
 .project-3 .gr-2 {
   background: url('../images/b12.3.jpg')
@@ -367,8 +367,13 @@ footer p{
     max-width: 80%;
     font-size: 13px;
   }
+  .about-content {
+    width: 90%;
+    min-width: auto;
+  }
   .about-text{
-    padding: 40px 2%;
+    padding: 0;
+    max-width: 90%;
   }
   .section-projects {
     grid-template-columns: repeat(1, 1fr);
