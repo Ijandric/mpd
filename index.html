@@ -318,7 +318,7 @@
 
       var t;
       var start = $('#carouselExampleIndicators').find('.active').attr('data-interval');
-      t = setTimeout("$('#carouselExampleIndicators').carousel({interval: 1000});", start-1000);
+      t = setTimeout("$('#carouselExampleIndicators').carousel({interval: 3000});", start-1000);
 
       $('#carouselExampleIndicators').on('slid.bs.carousel', function () {  
           clearTimeout(t);  
