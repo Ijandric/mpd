@@ -250,7 +250,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* Project 4 */
 .project-4 .gr-1 {
-  background: #D9C9AD;
+  background: #323C63;
+}
+.project-4 .gr-1 h3 {
+  color: #D9C9AD;
+  font-family: 'Zilla Slab', serif;
 }
 .project-4 .gr-2 {
   background: url('../images/novi.1.jpg')
@@ -321,6 +325,9 @@ a.project-logo{
 }
 .project-content:hover{
   opacity: 1;
+}
+.download-pdf{
+  font-family: 'Montserrat', sans-serif !important;
 }
 @keyframes txt {
   from { opacity: 0; transform: translateX(-50px); }
